@@ -1,8 +1,8 @@
 public abstract class Figur {
   //zufällige Zahl zwischen 7 und 16
   public final int factor = (int) (Math.random() * 10) + 7;
-  private int offsetLeft;
-  private int maxHeightPanel;
+  public int offsetLeft;
+  public int maxHeightPanel;
 
 
   //abstrakte mehtode getHeight() : int

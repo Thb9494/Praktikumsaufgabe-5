@@ -1,3 +1,6 @@
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class Main {
   public static void main (String[] args) {
 
@@ -22,10 +25,30 @@ public class Main {
       }
     }
 
-    int maxHeightPanel;
+    int maxHeightPanel = figuren[9].getHeight(); //Höhe der größten Figur (letzte Figur im Array figuren)
     int totalWidthPanel = spaceBetweenFigures + figuren[0].getWidth() + spaceBetweenFigures + figuren[1].getWidth() + spaceBetweenFigures + figuren[2].getWidth() + spaceBetweenFigures + figuren[3].getWidth() + spaceBetweenFigures + figuren[4].getWidth() + spaceBetweenFigures + figuren[5].getWidth() + spaceBetweenFigures + figuren[6].getWidth() + spaceBetweenFigures + figuren[7].getWidth() + spaceBetweenFigures + figuren[8].getWidth() + spaceBetweenFigures + figuren[9].getWidth() + spaceBetweenFigures;
     
+    //JFrame erstellen
+    JFrame frame = new JFrame();
+    frame.setSize(totalWidthPanel, maxHeightPanel);
+    frame.setBackground(java.awt.Color.BLACK);
+    
+    //JPanel erstellen
+    JPanel panel = new JPanel();
+    panel.setSize(totalWidthPanel, maxHeightPanel);
+    panel.setBackground(java.awt.Color.BLACK);
+
+    //JPanel zum JFrame hinzufügen
+    frame.add(panel);
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setVisible(true);
+
+    // Methode paintComponents des Panel
+    
+    }
+
+
 
   }
   
-}
+
