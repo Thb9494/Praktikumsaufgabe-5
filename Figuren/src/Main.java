@@ -50,28 +50,4 @@ public class Main {
       @Override
       protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        int offsetLeft = spaceBetweenFigures;
-        for (Figur figur : figuren) {
-          figur.paintOnGraphics(g, offsetLeft, maxHeightPanel);
-          offsetLeft += figur.getWidth() + spaceBetweenFigures;
-        }
-      }
-    };
-
-
-
-
-    panel.setSize(totalWidthPanel, maxHeightPanel);
-    panel.setBackground(java.awt.Color.BLACK);
-    // schleife um Components zu malen
-
-    // JPanel zum JFrame hinzufügen
-    frame.add(panel);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.setVisible(true);
-
-    // Methode paintComponents des Panel
-
-  }
-
-}
+        int offset

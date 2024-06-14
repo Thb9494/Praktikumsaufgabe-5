@@ -20,8 +20,10 @@ public class Cat extends Figur {
 
   @Override
   public void paintOnGraphics(Graphics g) {
-    int color = (int) (Math.random() * 256);
-    g.setColor(new java.awt.Color(color, color, color));
+    int red = (int) (Math.random() * 256);
+    int green = (int) (Math.random() * 256);
+    int blue = (int) (Math.random() * 256);
+    g.setColor(new java.awt.Color(red, green, blue));
     int offSetTop = maxHeightPanel - this.getHeight();
    // Zeichnen der Katze
       //tail
@@ -33,7 +35,9 @@ public class Cat extends Figur {
       //leg 2
       g.fillRect(offsetLeft   + ((mainBodyWidth * factor) - legsWidth * factor), offSetTop + (tailHeight + mainBodyHeight) * factor, legsWidth *factor, legsHeight * factor);
       //head
-      g.fillOval(offsetLeft + (mainBodyWidth) * factor , offSetTop, headRadius * factor, headRadius * factor);
+      g.fillOval(offsetLeft + (mainBodyWidth) * factor - (int)(headRadius * 0.25 * factor), offSetTop + (int)(headRadius * 0.25 * factor), headRadius * factor, headRadius * factor);
+      //ears
+      g.fillRect(offsetLeft + (mainBodyWidth) * factor - (int)(headRadius * 0.25 * factor), offSetTop + (int)(headRadius * 0.25 * factor), earsWidth * factor, earsHeight * factor);
 
     }
     

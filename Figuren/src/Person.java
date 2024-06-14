@@ -23,8 +23,11 @@ public class Person extends Figur{
   public void paintOnGraphics(Graphics g) {
     int offSetTop = maxHeightPanel - this.getHeight();
     // set figure random color
-    int color = (int) (Math.random() * 256);
-    g.setColor(new java.awt.Color(color, color, color));
+    int red = (int) (Math.random() * 256);
+    int green = (int) (Math.random() * 256);
+    int blue = (int) (Math.random() * 256);
+    g.setColor(new java.awt.Color(red, green, blue));
+    
     
     // Zeichnen der Person
     //head 
