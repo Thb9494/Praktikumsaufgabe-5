@@ -24,22 +24,17 @@ public class Cat extends Figur {
     g.setColor(new java.awt.Color(color, color, color));
     int offSetTop = maxHeightPanel - this.getHeight();
    // Zeichnen der Katze
-        // Kopf
-        g.fillOval(offsetLeft + mainBodyWidth - headRadius, offSetTop, headRadius, headRadius);
+      //tail
+      g.fillRect(offsetLeft, offSetTop, tailWidth * factor, tailHeight * factor);
+      //body
+      g.fillRect(offsetLeft, offSetTop + tailHeight * factor, mainBodyWidth * factor, mainBodyHeight * factor);
+      //leg 1
+      g.fillRect(offsetLeft + tailWidth * factor, offSetTop + (tailHeight + mainBodyHeight) * factor, legsWidth *factor, legsHeight * factor);
+      //leg 2
+      g.fillRect(offsetLeft   + ((mainBodyWidth * factor) - legsWidth * factor), offSetTop + (tailHeight + mainBodyHeight) * factor, legsWidth *factor, legsHeight * factor);
+      //head
+      g.fillOval(offsetLeft + (mainBodyWidth) * factor , offSetTop, headRadius * factor, headRadius * factor);
 
-        // Ohren
-        g.fillRect(offsetLeft + mainBodyWidth - headRadius, offSetTop - earsHeight, earsWidth, earsHeight);
-        g.fillRect(offsetLeft + mainBodyWidth - earsWidth, offSetTop - earsHeight, earsWidth, earsHeight);
-
-        // Körper
-        g.fillRect(offsetLeft, offSetTop + headRadius, mainBodyWidth, mainBodyHeight);
-
-        // Beine
-        g.fillRect(offsetLeft, offSetTop + headRadius + mainBodyHeight, legsWidth, legsHeight);
-        g.fillRect(offsetLeft + mainBodyWidth - legsWidth, offSetTop + headRadius + mainBodyHeight, legsWidth, legsHeight);
-
-        // Schwanz
-        g.fillRect(offsetLeft - tailWidth, offSetTop + headRadius, tailWidth, tailHeight);
     }
     
 

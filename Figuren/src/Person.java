@@ -22,19 +22,16 @@ public class Person extends Figur{
   @Override
   public void paintOnGraphics(Graphics g) {
     int offSetTop = maxHeightPanel - this.getHeight();
-    //random color
+    // set figure random color
     int color = (int) (Math.random() * 256);
     g.setColor(new java.awt.Color(color, color, color));
-    //head
-    g.fillOval(offsetLeft + (mainBodyWidth / 2) * factor - (headRadius / 2) * factor, maxHeightPanel - (int) (legsHeight + mainBodyHeight + headRadius * 0.75) * factor, headRadius * factor, headRadius * factor);
+    
+    // Zeichnen der Person
+    //head 
+    g.fillOval(offsetLeft + armsWidth * factor + (mainBodyWidth/ 2) * factor, offSetTop, headRadius * factor, headRadius * factor);
     //neck
-    g.fillRect(offsetLeft + (mainBodyWidth / 2) * factor - (neckWidth / 2) * factor, maxHeightPanel - (int) (legsHeight + mainBodyHeight + headRadius * 0.75) * factor, neckWidth * factor, neckHeight * factor);
-    //arms
-    g.fillRect(offsetLeft, maxHeightPanel - (int) (legsHeight + mainBodyHeight + headRadius * 0.75 + neckHeight) * factor, armsWidth * factor, armsHeight * factor);
-    //body
-    g.fillRect(offsetLeft + armsWidth * factor, maxHeightPanel - (int) (legsHeight + mainBodyHeight) * factor, mainBodyWidth * factor, mainBodyHeight * factor);
-    //legs
-    g.fillRect(offsetLeft + (mainBodyWidth / 2) * factor - (legsWidth / 2) * factor, maxHeightPanel - legsHeight * factor, legsWidth * factor, legsHeight * factor);
+    g.fillRect(offsetLeft + armsWidth * factor + (mainBodyWidth/2) * factor, offSetTop + (int) (headRadius * factor * 0.75), neckWidth * factor, neckHeight * factor);
+
   }
   
   

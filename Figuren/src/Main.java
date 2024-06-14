@@ -58,8 +58,7 @@ public class Main {
       }
     };
 
-    //Überschreibe die Methode painteines Panels und lasse in einer for-Schleife nun stets die paintOnGraphics-Methode aufrufen. Nun werden dir beim Ausführen des Programms auch alle Figuren mit angezeigt
-    
+
 
 
     panel.setSize(totalWidthPanel, maxHeightPanel);
