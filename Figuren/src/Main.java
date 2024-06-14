@@ -1,10 +1,7 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Graphics;
-import javax.swing.*;
-import java.awt.*;
-import java.util.List;
-import java.util.ArrayList;
+
 
 public class Main {
   public static void main(String[] args) {

@@ -15,34 +15,4 @@ public class Cat extends Figur {
   }
 
   public int getWidth() {
-    return (int) (mainBodyWidth + headRadius * 0.75 + tailWidth) * factor;
-  }
-
-  @Override
-  public void paintOnGraphics(Graphics g) {
-    int red = (int) (Math.random() * 256);
-    int green = (int) (Math.random() * 256);
-    int blue = (int) (Math.random() * 256);
-    g.setColor(new java.awt.Color(red, green, blue));
-    int offSetTop = maxHeightPanel - this.getHeight();
-   // Zeichnen der Katze
-      //tail
-      g.fillRect(offsetLeft, offSetTop, tailWidth * factor, tailHeight * factor);
-      //body
-      g.fillRect(offsetLeft, offSetTop + tailHeight * factor, mainBodyWidth * factor, mainBodyHeight * factor);
-      //leg 1
-      g.fillRect(offsetLeft + tailWidth * factor, offSetTop + (tailHeight + mainBodyHeight) * factor, legsWidth *factor, legsHeight * factor);
-      //leg 2
-      g.fillRect(offsetLeft   + ((mainBodyWidth * factor) - legsWidth * factor), offSetTop + (tailHeight + mainBodyHeight) * factor, legsWidth *factor, legsHeight * factor);
-      //head
-      g.fillOval(offsetLeft + (mainBodyWidth) * factor - (int)(headRadius * 0.25 * factor), offSetTop + (int)(headRadius * 0.25 * factor), headRadius * factor, headRadius * factor);
-      //ears
-      g.fillRect(offsetLeft + (mainBodyWidth) * factor - (int)(headRadius * 0.25 * factor), offSetTop + (int)(headRadius * 0.25 * factor), earsWidth * factor, earsHeight * factor);
-
-    }
-    
-
-  }
-  
-
-
+    return (int) (mainBodyWidth + headRadius * 0.75 + t
