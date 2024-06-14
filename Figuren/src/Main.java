@@ -1,12 +1,17 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.Graphics;
+import javax.swing.*;
+import java.awt.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
-  public static void main (String[] args) {
+  public static void main(String[] args) {
 
-    int spaceBetweenFigures = (int) (Math.random()* 10) + 5;
+    int spaceBetweenFigures = (int) (Math.random() * 10) + 5;
 
-    Figur [] figuren = new Figur[10];
+    Figur[] figuren = new Figur[10];
     for (int i = 0; i < figuren.length; i++) {
       if (Math.random() < 0.5) {
         figuren[i] = new Person();
@@ -14,7 +19,7 @@ public class Main {
         figuren[i] = new Cat();
       }
     }
-    //algorithmus um die Figuren nach der Größe zu sortieren
+    // algorithmus um die Figuren nach der Größe zu sortieren
     for (int i = 0; i < figuren.length; i++) {
       for (int j = i + 1; j < figuren.length; j++) {
         if (figuren[i].getHeight() > figuren[j].getHeight()) {
@@ -25,30 +30,49 @@ public class Main {
       }
     }
 
-    int maxHeightPanel = figuren[9].getHeight(); //Höhe der größten Figur (letzte Figur im Array figuren)
-    int totalWidthPanel = spaceBetweenFigures + figuren[0].getWidth() + spaceBetweenFigures + figuren[1].getWidth() + spaceBetweenFigures + figuren[2].getWidth() + spaceBetweenFigures + figuren[3].getWidth() + spaceBetweenFigures + figuren[4].getWidth() + spaceBetweenFigures + figuren[5].getWidth() + spaceBetweenFigures + figuren[6].getWidth() + spaceBetweenFigures + figuren[7].getWidth() + spaceBetweenFigures + figuren[8].getWidth() + spaceBetweenFigures + figuren[9].getWidth() + spaceBetweenFigures;
-    
-    //JFrame erstellen
+    int maxHeightPanel = figuren[9].getHeight(); // Höhe der größten Figur (letzte Figur im Array figuren)
+    int totalWidthPanel = spaceBetweenFigures + figuren[0].getWidth() + spaceBetweenFigures + figuren[1].getWidth()
+        + spaceBetweenFigures + figuren[2].getWidth() + spaceBetweenFigures + figuren[3].getWidth()
+        + spaceBetweenFigures + figuren[4].getWidth() + spaceBetweenFigures + figuren[5].getWidth()
+        + spaceBetweenFigures + figuren[6].getWidth() + spaceBetweenFigures + figuren[7].getWidth()
+        + spaceBetweenFigures + figuren[8].getWidth() + spaceBetweenFigures + figuren[9].getWidth()
+        + spaceBetweenFigures;
+
+    // JFrame erstellen
     JFrame frame = new JFrame();
     frame.setSize(totalWidthPanel, maxHeightPanel);
     frame.setBackground(java.awt.Color.BLACK);
+
+    // JPanel erstellen
+    // JPanel panel = new JPanel();
+
+    JPanel panel = new JPanel() {
+      @Override
+      protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        int offsetLeft = spaceBetweenFigures;
+        for (Figur figur : figuren) {
+          figur.paintOnGraphics(g, offsetLeft, maxHeightPanel);
+          offsetLeft += figur.getWidth() + spaceBetweenFigures;
+        }
+      }
+    };
+
+    //Überschreibe die Methode painteines Panels und lasse in einer for-Schleife nun stets die paintOnGraphics-Methode aufrufen. Nun werden dir beim Ausführen des Programms auch alle Figuren mit angezeigt
     
-    //JPanel erstellen
-    JPanel panel = new JPanel();
+
+
     panel.setSize(totalWidthPanel, maxHeightPanel);
     panel.setBackground(java.awt.Color.BLACK);
+    // schleife um Components zu malen
 
-    //JPanel zum JFrame hinzufügen
+    // JPanel zum JFrame hinzufügen
     frame.add(panel);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
 
     // Methode paintComponents des Panel
-    
-    }
-
-
 
   }
-  
 
+}
